@@ -1,5 +1,11 @@
 ---
+const pageTitle = 'わたしについて';
 
+const identity = {
+	firstName: "h",
+	country: "japan",
+	hobbies: ["web", "Game", "ipad",],
+};
 ---
 
 <html lang="ja">
@@ -8,7 +14,7 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
     <nav>
@@ -16,7 +22,11 @@
       <a href="/about/">about</a>
       <a href="/blog/">blog</a>
     </nav>
-		<h1>About</h1>
-		<p>about.astroを作成している</p>
+		<h1>{pageTitle}</h1>
+		<p>私の名前は{identity.firstName}で、{identity.country}に住んでいます。</p>
+		{identity.hobbies.length >= 2 &&
+			<p>私の2つの趣味は{identity.hobbies[0]}と{identity.hobbies[1]}です。</p>
+		}
+
 	</body>
 </html>
